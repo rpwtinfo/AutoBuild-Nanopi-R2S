@@ -11,9 +11,9 @@ name: NanoPi-R2s RK3328 OpenWrt Build
 
 on:  
 #执行此脚本请删除下面3行的#，然后点击start commit
-  push:
-    branches: 
-      - master
+#  push:
+#    branches: 
+#      - master
 
 # schedule:
   #   - cron: 0 20 * * *
@@ -83,7 +83,7 @@ jobs:
       - name: Merge LEDE
         run: |
           cd friendlywrt-rk3328
-          git clone https://github.com/Lienol/lean-lede
+          git clone -b dev-lean-lede https://github.com/Lienol/openwrt lean-lede
           cd friendlywrt
           cp -r ../lean_lede/package/lean package/
           sed -i 's/https:\/\/github.com\/friendlyarm\/friendlywrt_project_luci^bb021b4b9097ad332ab40bce2a1c239d9fcf225b/https:\/\/github.com\/coolsnowwolf\/luci/' feeds.conf.default
